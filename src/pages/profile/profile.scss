@@ -1,0 +1,54 @@
+.profile-photo{
+    border-radius:50%;
+    margin-top: 10px;
+    width: 8em !important;
+    height: 8em !important;
+}
+
+.profile-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.info-square{
+    text-align: center;
+}
+
+.follow-button{
+    width:90%;
+    margin: 0px 10px;
+    background-color: #3E99ED;
+}
+
+.more-details{
+    padding-left: 10px;
+}
+
+$segment-button-ios-border-radius: 0px;
+$segment-button-ios-toolbar-icon-size: 3rem;
+$segment-button-ios-toolbar-icon-width: 3rem;
+
+ion-segment{
+    height: 5rem;
+    border: 1px solid rgba(160, 160, 160, 0.453);
+}
+
+ion-segment-button{
+    border: 0px !important;
+}
+
+.image-grid{
+    padding: 0px;
+    margin: 0px;
+}
+
+.single-row{
+    height: 18rem;
+}
+
+.single-image{
+    padding:0px;
+}

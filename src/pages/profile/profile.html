@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>capt.og</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- first set should be a row -->
+  <ion-grid class="profile-intro">
+    <ion-row>
+      <ion-col col-4>
+        <img class="profile-photo" src="https://res.cloudinary.com/og-tech/image/upload/s--Ivs1sp-J--/c_scale,w_100/v1529311900/og_icon.jpg">
+      </ion-col>
+      <ion-col col-8>
+        <div class="profile-info">
+          <div class="post-count info-square">
+            <p>
+              <strong>1</strong><br>
+              <em>post</em>
+            </p>
+          </div>
+          <div class="follower-count info-square">
+            <p>
+              <strong>1532</strong><br>
+              <em>followers</em>
+            </p>
+          </div>
+          <div class="following-count info-square">
+            <p>
+              <strong>200</strong><br>
+              <em>following</em>
+            </p>
+          </div>
+        </div>
+        <div>
+          <button ion-button class="follow-button">Follow</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="more-details">
+    <p class="user-name"><strong>Oreoluwa Ogundipe</strong></p>
+    <p class="user-bio">Softwèrè Engineer</p>
+  </div>
+
+  <ion-segment color="primary">
+    <ion-segment-button value="posts" selected>
+      <ion-icon name="grid"></ion-icon>    
+    </ion-segment-button>
+    <ion-segment-button value="tagged">
+        <ion-icon name="contacts"></ion-icon>
+      </ion-segment-button>
+    <ion-segment-button value="bookmark">
+      <ion-icon name="bookmark"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid class="image-grid">
+    <ion-row class="single-row">
+      <ion-col col-4 class="single-image">
+        <img height="100%" width="100%" src="https://res.cloudinary.com/og-tech/image/upload/q_40/v1506850322/blog_g3mexb.jpg">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
