@@ -1,0 +1,29 @@
+type User  {
+  id: ID! @unique
+  username: String!
+  fullname: String!
+  avatar: String!
+  bio: String!
+  followers: Int!
+  following: Int!
+  posts: [Post!]! @relation(name: "UserPosts")
+  comments: [Comment!]! @relation(name: "UserComments")
+}
+
+type Comment{
+  id: ID! @unique
+  message: String
+  postedAt: DateTime!
+  user: User! @relation(name: "UserComments")
+  post: Post! @relation(name: "PostComments")
+}
+
+type Post{
+  id: ID! @unique
+  image_url: String!
+  description: String,
+  likes: Int @default(value: 0)
+  postedAt: DateTime!
+  user: User! @relation(name: "UserPosts")
+  comments: [Comment!]! @relation(name: "PostComments")
+}
