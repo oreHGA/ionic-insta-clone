@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>capt.og</ion-title>
+    <ion-title>{{user?.username}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,25 +18,25 @@
   <ion-grid class="profile-intro">
     <ion-row>
       <ion-col col-4>
-        <img class="profile-photo" src="https://res.cloudinary.com/og-tech/image/upload/s--Ivs1sp-J--/c_scale,w_100/v1529311900/og_icon.jpg">
+        <img class="profile-photo" [src]="user?.avatar">
       </ion-col>
       <ion-col col-8>
         <div class="profile-info">
           <div class="post-count info-square">
             <p>
-              <strong>1</strong><br>
-              <em>post</em>
+              <strong>{{ user?.posts.length }}</strong><br>
+              <em>{{ this.plural('post', user?.posts.length) }}</em>
             </p>
           </div>
           <div class="follower-count info-square">
             <p>
-              <strong>1532</strong><br>
-              <em>followers</em>
+              <strong>{{ user?.followers }}</strong><br>
+              <em>{{ this.plural('follower', user?.followers) }}</em>
             </p>
           </div>
           <div class="following-count info-square">
             <p>
-              <strong>200</strong><br>
+              <strong>{{ user?.following }}</strong><br>
               <em>following</em>
             </p>
           </div>
@@ -49,8 +49,8 @@
   </ion-grid>
 
   <div class="more-details">
-    <p class="user-name"><strong>Oreoluwa Ogundipe</strong></p>
-    <p class="user-bio">Softwèrè Engineer</p>
+    <p class="user-name"><strong>{{ user?.fullname }}</strong></p>
+    <p class="user-bio">{{ user?.bio }}</p>
   </div>
 
   <ion-segment color="primary">
@@ -67,9 +67,9 @@
 
   <ion-grid class="image-grid">
     <ion-row class="single-row">
-      <ion-col col-4 class="single-image">
-        <img height="100%" width="100%" src="https://res.cloudinary.com/og-tech/image/upload/q_40/v1506850322/blog_g3mexb.jpg">
-      </ion-col>
+        <ion-col *ngFor = "let post of user?.posts" col-4 class="single-image">
+          <img width="100%" height="100%" [src]="post.image_url">
+        </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

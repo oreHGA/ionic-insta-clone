@@ -1,25 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Apollo } from 'apollo-angular';
+import  gql from 'graphql-tag';
+import pluralize from 'pluralize';
 
 @IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
 })
-export class ProfilePage {
+export class ProfilePage implements OnInit {
+  user: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,  private apollo: Apollo) {
+    this.fetchProfile( this.navParams.get('id'));
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+  ngOnInit(){
   }
 
+
+  fetchProfile(user_id: string){
+    this.apollo
+      .query({
+        query: gql`
+        {
+          user(where: {id: "${user_id}"}){
+            id
+            username
+            fullname
+            avatar
+            bio
+            followers
+            following
+            posts{
+              image_url
+            }
+          }
+        }
+        `,
+      })
+      .subscribe(({ data }) => {
+        let result:any = data;
+        this.user = result.user;
+      });
+  }
+
+  plural(word, number){
+    return pluralize(word, number);
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { CommentPage } from '../comment/comment';
 import gql from 'graphql-tag';
@@ -7,7 +7,10 @@ import { Apollo } from 'apollo-angular';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  entryComponents: [
+    ProfilePage
+  ]
 })
 
 export class HomePage implements OnInit {
@@ -15,9 +18,11 @@ export class HomePage implements OnInit {
   loading: boolean;
   posts: any;
 
-  constructor(public navCtrl: NavController,private apollo: Apollo) {}
+  constructor(public navCtrl: NavController,private apollo: Apollo) {
+    this.fetchPosts();
+  }
 
-  ngOnInit(){
+  fetchPosts(){
     this.apollo
       .query({
         query: gql`
@@ -44,9 +49,12 @@ export class HomePage implements OnInit {
         this.posts = inner_posts.posts;
       });
   }
+  ngOnInit(){
+  }
 
-  public toProfilePage(){
-    this.navCtrl.push(ProfilePage);
+  public toProfilePage(user_id: string){
+    let nav_params = new NavParams({'id': user_id});
+    this.navCtrl.push(ProfilePage, nav_params);
   }
   
   public toCommentSection(){
