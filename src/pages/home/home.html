@@ -6,67 +6,38 @@
 
 <ion-content>
   <!-- this is where the posts will be -->
-  <ion-card class="single-post-home">
-    <ion-item (click)="toProfilePage()">
-      <ion-avatar item-start>
-        <img src="https://res.cloudinary.com/og-tech/image/upload/s--Ivs1sp-J--/c_scale,w_100/v1529311900/og_icon.jpg">
-      </ion-avatar>
-      <h2>capt.og</h2>
-    </ion-item>
-
-    <img src="https://res.cloudinary.com/og-tech/image/upload/q_40/v1506850322/blog_g3mexb.jpg">
-
-    <ion-card-content>
-      <p>Zoned Out 💥</p>
-    </ion-card-content>
-
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small (click)="likePost()">
-          <ion-icon name="heart"></ion-icon>
-          <div>{{post_num_likes}} likes</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small (click)="toCommentSection()">
-          <ion-icon name="text"></ion-icon>
-          <div>2 Comments</div>
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
+  <div *ngFor="let post of posts">
+    <ion-card class="single-post-home">
+      <ion-item (click)="toProfilePage(post.user.id)">
+        <ion-avatar item-start>
+          <img [src]="post.user.avatar">
+        </ion-avatar>
+        <h2>{{post.user.username}}</h2>
+      </ion-item>
   
-  <ion-card class="single-post-home">
-    <ion-item (click)="toProfilePage()">
-      <ion-avatar item-start>
-        <img src="https://res.cloudinary.com/og-tech/image/upload/s--Ivs1sp-J--/c_scale,w_100/v1529311900/og_icon.jpg">
-      </ion-avatar>
-      <h2>capt.og</h2>
-    </ion-item>
-
-    <img src="https://res.cloudinary.com/og-tech/image/upload/q_40/v1506850322/blog_g3mexb.jpg">
-
-    <ion-card-content>
-      <p>Zoned Out 💥</p>
-    </ion-card-content>
-
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small (click)="likePost()">
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>{{post_num_likes}} likes</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small (click)="toCommentSection()">
-          <ion-icon name="text"></ion-icon>
-          <div>2 Comments</div>
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
+      <img [src]="post.image_url">
+  
+      <ion-card-content>
+        <p><strong>{{post.user.username}}</strong> &nbsp;&nbsp;&nbsp; {{post.description}}</p>
+      </ion-card-content>
+  
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear small (click)="likePost()">
+            <ion-icon name="heart"></ion-icon>
+            <div>{{post.likes}} likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start clear small (click)="toCommentSection()">
+            <ion-icon name="text"></ion-icon>
+            <div>{{post.comments.length}} Comments</div>
+          </button>
+        </ion-col>
+      </ion-row>
+  
+    </ion-card>
+  </div>
 
   <ion-fab bottom right>
     <button ion-fab mini><ion-icon name="add"></ion-icon></button>
