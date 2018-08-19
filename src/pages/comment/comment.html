@@ -9,64 +9,49 @@
 
 <ion-content>
   <ion-grid>
-    <!-- first comment grid -->
     <ion-row class="post-content">
       <ion-col col-2>
         <ion-avatar item-start>
-          <img class="icon-photo" src="https://res.cloudinary.com/og-tech/image/upload/s--Ivs1sp-J--/c_scale,w_100/v1529311900/og_icon.jpg">
+          <img class="icon-photo" [src]="user_avatar">
         </ion-avatar>
       </ion-col>
       <ion-col col-10>
         <div>
-          <!-- this will contain the main post content -->
-          <p><strong>capt.og</strong> Zoned Out 💥</p>
+          <p>
+            <strong>{{username}}</strong>&nbsp;&nbsp;&nbsp; {{post_desc}}
+          </p>
         </div>
       </ion-col>
     </ion-row>
 
-    <!-- this rows will represent sample comments -->
-    <ion-row class="user-comments">
+    <ion-row *ngFor="let comment of comments" class="user-comments">
       <ion-col col-2>
         <ion-avatar item-start>
-          <img class="icon-photo" src="https://api.adorable.io/avatars/100/big_dawg@adorable.png">
+          <img class="icon-photo" [src]="comment.user.avatar">
         </ion-avatar>
       </ion-col>
       <ion-col col-10>
         <div>
-          <!-- this will contain the main post content -->
-          <p><strong>big_dawg</strong> Haha! I feel you bruva! Stay grinding 💯</p>
+          <p>
+            <strong>{{comment?.user.username}}</strong>&nbsp;&nbsp;&nbsp;{{ comment?.message }}
+          </p>
         </div>
       </ion-col>
-    </ion-row> 
-
-    <ion-row class="user-comments">
-        <ion-col col-2>
-          <ion-avatar item-start>
-            <img class="icon-photo" src="https://api.adorable.io/avatars/100/broda_shagi@adorable.png">
-          </ion-avatar>
-        </ion-col>
-        <ion-col col-10>
-          <div>
-            <!-- this will contain the main post content -->
-            <p><strong>broda_shagi</strong> Better make sure you write tests 😏</p>
-          </div>
-        </ion-col>
-    </ion-row> 
+    </ion-row>
   </ion-grid>
 </ion-content>
 
 <ion-footer>
-  <!-- add the input field fixed to the bottom of the screen -->
   <ion-grid>
-      <ion-row class="comment-area">
-        <ion-col col-9>
-          <ion-textarea placeholder="Enter your comment..."></ion-textarea>
-        </ion-col>
-        <ion-col col-3 >
-          <button ion-button class="comment-button">
-            <ion-icon name="paper-plane"></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-row class="comment-area">
+      <ion-col col-9>
+        <ion-textarea placeholder="Enter your comment..."></ion-textarea>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="comment-button">
+          <ion-icon name="paper-plane"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-footer>

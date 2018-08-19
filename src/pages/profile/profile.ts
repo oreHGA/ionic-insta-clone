@@ -13,10 +13,10 @@ export class ProfilePage implements OnInit {
   user: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  private apollo: Apollo) {
-    this.fetchProfile( this.navParams.get('id'));
   }
 
   ngOnInit(){
+    this.fetchProfile( this.navParams.get('id'));
   }
 
 
