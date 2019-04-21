@@ -1,5 +1,5 @@
 type User  {
-  id: ID! @unique
+  id: ID! @unique @id
   username: String! @unique
   fullname: String!
   avatar: String!
@@ -11,7 +11,7 @@ type User  {
 }
 
 type Comment{
-  id: ID! @unique
+  id: ID! @unique @id
   message: String
   postedAt: DateTime!
   user: User! @relation(name: "UserComments")
@@ -19,7 +19,7 @@ type Comment{
 }
 
 type Post{
-  id: ID! @unique
+  id: ID! @unique @id
   image_url: String!
   description: String,
   likes: Int @default(value: 0)
