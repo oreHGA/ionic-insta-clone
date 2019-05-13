@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create a new post</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div style="text-align:center; padding: 16px">
+    <p>Enter a post description and hit <em>Capture Image</em> to create a post</p>
+  </div>
+
+  <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+    <ion-item style="padding:16px">
+      <ion-label floating>Post Caption:</ion-label>
+      <ion-input [(ngModel)]="description" type="text"></ion-input>
+    </ion-item>
+
+    <button style="width:80%; margin-top:20px" ion-button (click)="loadWidget()">
+      Capture Image
+    </button>
+  </div>
+
+</ion-content>

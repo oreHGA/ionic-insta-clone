@@ -45,10 +45,10 @@
   <ion-grid>
     <ion-row class="comment-area">
       <ion-col col-9>
-        <ion-textarea placeholder="Enter your comment..."></ion-textarea>
+        <ion-textarea placeholder="Enter your comment..." [(ngModel)]="user_comment"></ion-textarea>
       </ion-col>
       <ion-col col-3>
-        <button ion-button class="comment-button">
+        <button ion-button class="comment-button" (click)="postComment()">
           <ion-icon name="paper-plane"></ion-icon>
         </button>
       </ion-col>
