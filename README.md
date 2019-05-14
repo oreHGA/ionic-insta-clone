@@ -1,9 +1,6 @@
 # Ionic Instagram Clone
 
-![Application Screenshots](./demo/img1.PNG)
-![Application Screenshots](./demo/img2.PNG)
-![Application Screenshots](./demo/img3.PNG)
-![Application Screenshots](./demo/img4.PNG)
+![Application Demo Mobile](./demo/mobile_demo.gif)
 
 ![Application Demo](./demo/demo1.gif)
 ![Application Demo](./demo/demo2.gif)
