@@ -56,7 +56,7 @@ import { PusherServiceProvider } from '../providers/pusher-service/pusher-servic
 export class AppModule {
   constructor(apollo: Apollo, httpLink: HttpLink) {
     apollo.create({
-      link: httpLink.create({ uri: 'localhost:4466' }), // uri specifies the endpoint for our graphql server
+      link: httpLink.create({ uri: 'http://localhost:4466' }), // uri specifies the endpoint for our graphql server
       cache: new InMemoryCache()
     })
   }

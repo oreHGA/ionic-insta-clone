@@ -96,7 +96,7 @@ export class CommentPage {
     }).subscribe((data) => {
       let post_response: any = data;
       // after successful upload, trigger new comment event
-      this.http.post('localhost:3128/trigger-comment-event', post_response.data.createComment)
+      this.http.post('http://localhost:3128/trigger-comment-event', post_response.data.createComment)
         .subscribe(() => {
           this.showAlert('Success', 'Comment posted successfully');
         });

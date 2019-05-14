@@ -74,7 +74,7 @@ export class CreatePostPage {
       console.log('uploaded successfuly');
       // after sucessful upload, trigger pusher event
       let post_response: any = data;
-      this.http.post('localhost:3128/trigger-post-event', post_response.data.createPost)
+      this.http.post('http://localhost:3128/trigger-post-event', post_response.data.createPost)
         .subscribe(() => {
           this.showAlert('Post Shared', 'Your post has been shared with other users');
           this.navCtrl.push(HomePage);
