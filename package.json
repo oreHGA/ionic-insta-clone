@@ -39,7 +39,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
-    "ionic-angular": "3.9.2",
+    "ionic-angular": "3.9.6",
     "ionicons": "3.0.0",
     "pluralize": "^7.0.0",
     "pusher-js": "^4.4.0",
