@@ -18,7 +18,7 @@
 - [Ionic](https://ionicframework.com) installed on your machine, you can read up on how to do that here [] add link
 - [NodeJS](https://nodejs.org) installed on your machine
 - [Yarn](https://yarnpkg.com) Installed on your machine
-- [Dcoker](https://www.docker.com/) Installed on your machine
+- [Docker](https://www.docker.com/) Installed on your machine
 
 ## Getting Started
 - Install the necessary node modules
