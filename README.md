@@ -4,10 +4,6 @@
 
 [Link to Part 2 of Tutorial Series](https://pusher.com/tutorials/instagram-clone-ionic-part-2)
 
-[Link to Part 3 of Tutorial Series](https://pusher.com/tutorials/instagram-clone-ionic-part-3)
-
-[Link to Part 4 of Tutorial Series](https://pusher.com/tutorials/instagram-clone-ionic-part-4)
-
 ![Application Demo Mobile](./demo/mobile_demo.gif)
 
 ![Application Demo](./demo/demo1.gif)
